@@ -1,3 +1,4 @@
+"""
 n = int(input())
 a = list(map(int, input().split()))
 
@@ -28,4 +29,43 @@ for i in arr_list:
     if ans < s:
         ans = s
 print(ans)
+"""
+
+n = int(input())
+a = list(map(int, input().split()))
+visited = [0]*len(a)
+arr = [0]*len(a)
+per_list = []
+max_result = float('-inf')
+
+def permutation(level):
+    global max_result
+    if level == len(a):
+        per_list.append(arr.copy())
+
+        #최대값 갱신하는 부분
+        sum = 0
+        for i in range(len(a)-1):
+            sum += abs(arr[i] - arr[i+1])
+        max_result = max(max_result, sum)
+
+        return
+
+    for i in range(len(a)):
+        if visited[i]:
+            continue
+        visited[i] =1
+        arr[level] = a[i]
+        permutation(level+1)
+        visited[i] = 0
+
+permutation(0)
+
+print(max_result)
+
+
+
+
+
+
 
