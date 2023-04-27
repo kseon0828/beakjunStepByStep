@@ -2,7 +2,8 @@
 using namespace std;
 
 int main(void) {
-	int n, result, temp;
+	int n, temp;
+	int result = 0; //영화제목을 ++하면서 n번째 종말 수 구함
 	int cnt = 0; //현재 몇번째 순서인지
 
 	cin >> n;
@@ -25,6 +26,6 @@ int main(void) {
 		}
 	}
 
-
+	cout << result;
 	return 0;
 }
