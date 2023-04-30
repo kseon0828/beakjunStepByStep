@@ -2,33 +2,24 @@
 using namespace std;
 
 int main(void) {
-	int num, first, beforeNum;
+	int arr[8];
 
-	cin >> first;
-	beforeNum = first;
+	//for문을 돌면서 조건에 충족되면 하나씩 plus
+	int asc = 0;
+	int dsc = 0;
 
-	if(first==8){
-		for (int i = 0; i < 7; i++) {
-			cin >> num;
-			beforeNum--;
-			if (num != beforeNum) {
-				cout << "mixed";
-				return 0;
-			}
-		}
-		cout << "descending";
+	for (int i = 0; i < 8; i++) {
+		cin >> arr[i];
+
+		if (arr[i] == i + 1)
+			asc ++;
+		else if (arr[i] == 8 - i)
+			dsc++;
 	}
-	else if (first == 1) {
-		for (int i = 0; i < 7; i++) {
-			cin >> num;
-			beforeNum++;
-			if (num != beforeNum) {
-				cout << "mixed";
-				return 0;
-			}
-		}
-		cout << "ascending";
-	}
+
+	if (asc == 8) cout << "ascending";
+	else if (dsc == 8) cout << "descending";
+	else cout << "mixed";
 
 	return 0;
 }
