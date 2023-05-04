@@ -42,7 +42,7 @@ int main(void) {
 	int a = round(double(sum) / n);
 	if (a == -0) a=abs(a);
 
-	cout << a <<'\n';
+	cout << a<<'\n';
 	
 	for (int i = 0; i < n / 2; i++) pq.pop();
 	cout << pq.top()<<'\n';
